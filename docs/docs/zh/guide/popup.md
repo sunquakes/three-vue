@@ -1,0 +1,140 @@
+---
+lang: zh-CN
+title: 弹出窗口
+---
+
+::: tip 类型
+类
+:::
+
+## 默认用法
+
+<Popup />
+
+::: details 点击我查看代码
+
+```vue
+<template>
+  <div class="popup">
+    <scene @created="created"> </scene>
+  </div>
+</template>
+
+<script lang="ts" setup>
+import { Popup } from 'three-vue'
+import TrafficLight from './TrafficLight.vue'
+
+const popup = new Popup([0, 0, 0], TrafficLight, {})
+const created = (scene) => {
+  scene.add(popup.scene)
+  popup.moveTo([0, 0.5, 0], 10000)
+}
+</script>
+
+<style>
+.popup {
+  margin-top: 10px;
+  width: 100%;
+  height: 300px;
+}
+</style>
+```
+
+#### `TrafficLight.vue`
+
+```vue
+<template>
+  <div class="traffic-light">
+    <div class="light red" :class="{ active: currentLight === 'red' }"></div>
+    <div class="light yellow" :class="{ active: currentLight === 'yellow' }"></div>
+    <div class="light green" :class="{ active: currentLight === 'green' }"></div>
+  </div>
+</template>
+
+<script>
+import { ref, onMounted, onUnmounted } from 'vue'
+
+export default {
+  name: 'TrafficLight',
+  setup() {
+    const currentLight = ref('red')
+    let timer
+
+    const changeLight = () => {
+      if (currentLight.value === 'red') {
+        currentLight.value = 'green'
+      } else if (currentLight.value === 'green') {
+        currentLight.value = 'yellow'
+      } else if (currentLight.value === 'yellow') {
+        currentLight.value = 'red'
+      }
+    }
+
+    onMounted(() => {
+      timer = setInterval(changeLight, 3000)
+    })
+
+    onUnmounted(() => {
+      clearInterval(timer)
+    })
+
+    return {
+      currentLight
+    }
+  }
+}
+</script>
+
+<style scoped>
+.traffic-light {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  width: 100px;
+  height: 20px;
+  background-color: #333;
+  border-radius: 4px;
+  padding: 4px;
+}
+
+.light {
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background-color: #555;
+  transition: background-color 0.5s;
+}
+
+.red {
+  background-color: #ff4d4d;
+}
+
+.yellow {
+  background-color: #ffd700;
+}
+
+.green {
+  background-color: #4caf50;
+}
+
+.active {
+  background-color: white;
+}
+</style>
+```
+
+:::
+
+## Props
+
+| 名称  | 类型              | 描述                                |
+| ----- | ----------------- | ----------------------------------- |
+| scene | THREE.CubeTexture | 用于 THREE.Scene 背景的立方体纹理。 |
+
+## Methods
+
+| Name        | Parameters                                                                        | Description                                                 |
+| ----------- | --------------------------------------------------------------------------------- | ----------------------------------------------------------- |
+| constructor | (position: [number, number, number], component: Component, props: object) => void | `props` 是组件的属性。                                      |
+| moveTo      | (position: [number, number, number], duration: number) => void                    | `duration` 是从一个位置移动到另一个位置的时间，单位是毫秒。 |

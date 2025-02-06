@@ -1415,7 +1415,7 @@ packages:
   three-vue@file:..:
     resolution: {directory: .., type: directory}
     peerDependencies:
-      vue: ^3.5.13
+      vue: ^3.0.0
 
   to-regex-range@5.0.1:
     resolution: {integrity: sha512-65P7iz6X5yEr1cwcgvQxbbIw7Uk3gOy5dIdtZ4rDveLqhrdJP+Li/Hx6tyK0NEb+2GCyneCMJiGqrADCSNk8sQ==}

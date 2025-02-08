@@ -60,8 +60,8 @@ npm install three-vue3
 - 从 three-vue3 导入所需的组件。
 
 ```js:no-line-numbers
-import ThreeVue from 'three-vue3'
-Vue.use(ThreeVue)
+import ThreeVue3 from 'three-vue3'
+Vue.use(ThreeVue3)
 ```
 
 - 深入阅读我们的详细文档和实际示例，以充分发挥 three-vue3 在您的 Vue 3 项目中的潜力。

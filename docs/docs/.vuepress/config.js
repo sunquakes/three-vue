@@ -2,16 +2,21 @@ import { defaultTheme } from '@vuepress/theme-default'
 import { defineUserConfig } from 'vuepress/cli'
 import { viteBundler } from '@vuepress/bundler-vite'
 
+const children = ['getting-started', 'scene', 'sky-box', 'model-loader', 'popup']
+
 export default defineUserConfig({
   lang: 'en-US',
 
   title: 'Three Vue',
   description: 'A vue3.x component library of Three.js.',
 
+  head: [['link', { rel: 'icon', href: '/images/logo.png' }]],
+
   theme: defaultTheme({
     logo: '/images/logo.png',
     repo: 'sunquakes/three-vue',
     editLinks: true,
+    sidebarDepth: 0,
     locales: {
       '/': {
         selectLanguageName: 'English',
@@ -22,13 +27,7 @@ export default defineUserConfig({
         sidebar: {
           '/guide/': [
             {
-              children: [
-                '/guide/getting-started.md',
-                '/guide/scene.md',
-                '/guide/sky-box.md',
-                '/guide/model-loader.md',
-                '/guide/popup.md'
-              ]
+              children: children
             }
           ]
         }
@@ -42,13 +41,7 @@ export default defineUserConfig({
         sidebar: {
           '/zh/guide/': [
             {
-              children: [
-                '/zh/guide/getting-started.md',
-                '/zh/guide/scene.md',
-                '/zh/guide/sky-box.md',
-                '/zh/guide/model-loader.md',
-                '/zh/guide/popup.md'
-              ]
+              children: children
             }
           ]
         }

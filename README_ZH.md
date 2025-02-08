@@ -50,6 +50,7 @@ pnpm install three-vue3
   width: 100%;
   height: 300px;
 }
+</style>
 ```
 
 ## 证书

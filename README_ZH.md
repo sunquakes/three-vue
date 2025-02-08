@@ -33,7 +33,14 @@ pnpm install three-vue3
 
 ## 快速开始
 
-- 在`Vue 3`中使用.
+- 在 `main.js` 中导入 `three-vue3`.
+
+```js
+import ThreeVue3 from 'three-vue3'
+Vue.use(ThreeVue3)
+```
+
+- 在`Vue 3`组件中使用.
 
 ```vue
 <template>

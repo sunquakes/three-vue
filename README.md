@@ -33,7 +33,14 @@ pnpm install three-vue3
 
 ## Getting Started
 
-- Use it in `Vue 3`.
+- Import the desired components from `three-vue3` in `main.js`.
+
+```js
+import ThreeVue3 from 'three-vue3'
+Vue.use(ThreeVue3)
+```
+
+- Use it in `Vue 3` components.
 
 ```vue
 <template>

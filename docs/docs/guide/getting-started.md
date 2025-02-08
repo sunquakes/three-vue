@@ -60,8 +60,8 @@ npm install three-vue3
 - Import the desired components from `three-vue3`.
 
 ```js:no-line-numbers
-import ThreeVue from 'three-vue3'
-Vue.use(ThreeVue)
+import ThreeVue3 from 'three-vue3'
+Vue.use(ThreeVue3)
 ```
 
 - Dive into our in-depth documentation and practical examples to unlock the full potential of three-vue3 in your `Vue 3` projects.

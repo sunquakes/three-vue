@@ -9,7 +9,7 @@ export default defineUserConfig({
   description: 'A vue3.x component library of Three.js.',
 
   theme: defaultTheme({
-    logo: 'https://vuejs.press/images/hero.png',
+    logo: '/images/logo.png',
     repo: 'sunquakes/three-vue',
     editLinks: true,
     locales: {

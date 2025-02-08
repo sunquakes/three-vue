@@ -23,7 +23,7 @@ importers:
       sass:
         specifier: ^1.83.4
         version: 1.83.4
-      three-vue:
+      three-vue3:
         specifier: file:../
         version: file:..(vue@3.5.13)
       vue:
@@ -1412,7 +1412,7 @@ packages:
     resolution: {integrity: sha512-5JRxVqC8I8NuOUjzBbvVJAKNM8qoVuH0O77h4WInc/qC2q5IreqKxYwgkga3PfA22OayK2ikceb/B26dztPl+Q==}
     engines: {node: '>=16'}
 
-  three-vue@file:..:
+  three-vue3@file:..:
     resolution: {directory: .., type: directory}
     peerDependencies:
       vue: ^3.0.0
@@ -2932,7 +2932,7 @@ snapshots:
     dependencies:
       copy-anything: 3.0.5
 
-  three-vue@file:..(vue@3.5.13):
+  three-vue3@file:..(vue@3.5.13):
     dependencies:
       vue: 3.5.13
 

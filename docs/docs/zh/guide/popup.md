@@ -21,7 +21,7 @@ title: 弹出窗口
 </template>
 
 <script lang="ts" setup>
-import { Popup } from 'three-vue'
+import { Popup } from 'three-vue3'
 import TrafficLight from './TrafficLight.vue'
 
 const popup = new Popup([0, 0, 0], TrafficLight, {})

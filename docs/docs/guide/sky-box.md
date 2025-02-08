@@ -21,7 +21,7 @@ Class
 </template>
 
 <script lang="ts" setup>
-import { SkyBox } from 'three-vue'
+import { SkyBox } from 'three-vue3'
 
 const skyBox = new SkyBox([
   '/images/examples/skybox/right.jpg',

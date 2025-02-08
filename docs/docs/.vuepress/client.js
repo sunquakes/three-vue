@@ -1,5 +1,5 @@
 import { defineClientConfig } from '@vuepress/client'
-import ThreeVue from 'three-vue'
+import ThreeVue from 'three-vue3'
 import Scene from './components/Scene.vue'
 import SkyBox from './components/SkyBox.vue'
 import GLTFLoader from './components/GLTFLoader.vue'

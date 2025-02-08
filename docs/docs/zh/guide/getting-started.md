@@ -33,38 +33,38 @@ npm install three
 
 ## 快速开始
 
-- 使用 pnpm 或 yarn 或 npm 安装 three-vue
+- 使用 pnpm 或 yarn 或 npm 安装 three-vue3
 
 ::: code-tabs
 
 @tab pnpm
 
 ```bash:no-line-numbers
-pnpm install three-vue
+pnpm install three-vue3
 ```
 
 @tab yarn
 
 ```bash:no-line-numbers
-yarn add three-vue
+yarn add three-vue3
 ```
 
 @tab npm
 
 ```bash:no-line-numbers
-npm install three-vue
+npm install three-vue3
 ```
 
 :::
 
-- 从 three-vue 导入所需的组件。
+- 从 three-vue3 导入所需的组件。
 
 ```js:no-line-numbers
-import ThreeVue from 'three-vue'
+import ThreeVue from 'three-vue3'
 Vue.use(ThreeVue)
 ```
 
-- 深入阅读我们的详细文档和实际示例，以充分发挥 three-vue 在您的 Vue 3 项目中的潜力。
+- 深入阅读我们的详细文档和实际示例，以充分发挥 three-vue3 在您的 Vue 3 项目中的潜力。
 
 ## 特性
 

@@ -31,7 +31,7 @@ jobs:
       - name: Extract Changelog
         id: extract_changelog
         run: |
-          zip --junk-paths three-vue ./dist/*
+          zip --junk-paths three-vue3 ./dist/*
 
           # Set the delimiter
           delimiter="---"
@@ -65,8 +65,8 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GH_TOKEN }}
         with:
           upload_url: ${{ steps.create_release.outputs.upload_url }}
-          asset_path: ./three-vue.zip
-          asset_name: three-vue.zip
+          asset_path: ./three-vue3.zip
+          asset_name: three-vue3.zip
           asset_content_type: application/zip
 
       - name: Publish to NPM

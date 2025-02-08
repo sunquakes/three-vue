@@ -14,7 +14,7 @@ export default defineConfig({
   build: {
     lib: {
       entry: resolve(__dirname, 'src/index.ts'),
-      name: 'three-vue'
+      name: 'three-vue3'
     },
     rollupOptions: {
       // make sure to externalize deps that shouldn't be bundled

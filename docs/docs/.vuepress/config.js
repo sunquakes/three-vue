@@ -14,7 +14,7 @@ export default defineUserConfig({
 
   theme: defaultTheme({
     logo: '/images/logo.png',
-    repo: 'sunquakes/three-vue',
+    repo: 'sunquakes/three-vue3',
     editLinks: true,
     sidebarDepth: 0,
     locales: {

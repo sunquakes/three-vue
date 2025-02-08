@@ -1,16 +1,16 @@
 {
-  "name": "three-vue",
+  "name": "three-vue3",
   "type": "module",
   "version": "0.0.1",
   "author": "Shing Rui <sunquakes@outlook.com>",
   "license": "Apache-2.0 license",
-  "main": "./dist/three-vue.js",
-  "module": "./dist/three-vue.js",
+  "main": "./dist/three-vue3.js",
+  "module": "./dist/three-vue3.js",
   "types": "./dist/index.d.ts",
   "exports": {
     ".": {
-      "import": "./dist/three-vue.js",
-      "require": "./dist/three-vue.umd.cjs"
+      "import": "./dist/three-vue3.js",
+      "require": "./dist/three-vue3.umd.cjs"
     },
     "./dist/style.css": "./dist/style.css"
   },

@@ -7,7 +7,7 @@ const children = ['getting-started', 'scene', 'sky-box', 'model-loader', 'popup'
 export default defineUserConfig({
   lang: 'en-US',
 
-  title: 'Three Vue',
+  title: 'Three Vue3',
   description: 'A vue3.x component library of Three.js.',
 
   head: [['link', { rel: 'icon', href: '/images/logo.png' }]],
@@ -52,12 +52,12 @@ export default defineUserConfig({
   locales: {
     '/': {
       lang: 'English',
-      title: 'Three Vue',
+      title: 'Three Vue3',
       description: 'A vue3.x component library of Three.js.'
     },
     '/zh/': {
       lang: '简体中文',
-      title: 'Three Vue',
+      title: 'Three Vue3',
       description: '一个Three.js的vue3.x组件库。'
     }
   },

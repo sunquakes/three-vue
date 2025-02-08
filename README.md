@@ -1,6 +1,6 @@
 English | [🇨🇳中文](https://github.com/sunquakes/three-vue3/blob/main/README_ZH.md)
 
-# Three Vue
+# Three Vue3
 
 <p align="center">
   <a href="https://three-vue3.sunquakes.com/" target="_blank" rel="noopener noreferrer">

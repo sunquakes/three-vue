@@ -2,6 +2,8 @@ import { defaultTheme } from '@vuepress/theme-default'
 import { defineUserConfig } from 'vuepress/cli'
 import { viteBundler } from '@vuepress/bundler-vite'
 
+const children = ['getting-started', 'scene', 'sky-box', 'model-loader', 'popup']
+
 export default defineUserConfig({
   lang: 'en-US',
 
@@ -25,7 +27,7 @@ export default defineUserConfig({
         sidebar: {
           '/guide/': [
             {
-              children: ['getting-started', 'scene', 'sky-box', 'model-loader', 'popup']
+              children: children
             }
           ]
         }
@@ -39,7 +41,7 @@ export default defineUserConfig({
         sidebar: {
           '/zh/guide/': [
             {
-              children: ['getting-started', 'scene', 'sky-box', 'model-loader', 'popup']
+              children: children
             }
           ]
         }

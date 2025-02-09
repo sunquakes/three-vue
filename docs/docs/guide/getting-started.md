@@ -33,7 +33,7 @@ npm install three
 
 ## Getting Started
 
-- Install `three-vue3` via pnpm or yarn or npm
+- Install `three-vue3` via `pnpm` or `yarn` or `npm`
 
 ::: code-tabs
 
@@ -57,14 +57,14 @@ npm install three-vue3
 
 :::
 
-- Import the desired components from `three-vue3`.
+- Import the desired components from `three-vue3` in `main.js`.
 
 ```js:no-line-numbers
 import ThreeVue3 from 'three-vue3'
 Vue.use(ThreeVue3)
 ```
 
-- Dive into our in-depth documentation and practical examples to unlock the full potential of three-vue3 in your `Vue 3` projects.
+- Dive into our in-depth documentation and practical examples to unlock the full potential of `three-vue3` in your `Vue 3` projects.
 
 ## Features
 

@@ -15,9 +15,7 @@ Class
 
 ```vue
 <template>
-  <div class="scene">
-    <scene @created="created"></scene>
-  </div>
+  <scene class="scene" @created="created"></scene>
 </template>
 
 <script lang="ts" setup>

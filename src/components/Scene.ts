@@ -1,4 +1,4 @@
-import { defineComponent, h, PropType, ref, watch } from 'vue'
+import { defineComponent, h, PropType, ref } from 'vue'
 import { generateUUID } from '../utils/UUID'
 import Scene from '../utils/Scene'
 import Camera from '../utils/Camera'
@@ -67,7 +67,7 @@ export default defineComponent({
       'div',
       {
         id: this.UUID,
-        style: { width: '100%', height: '100%', position: 'relative' }
+        style: { position: 'relative' }
       },
       this.showSlot && this.$slots.default ? this.$slots.default() : undefined
     )

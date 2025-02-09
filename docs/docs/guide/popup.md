@@ -15,9 +15,7 @@ Class
 
 ```vue
 <template>
-  <div class="popup">
-    <scene @created="created"> </scene>
-  </div>
+  <scene class="popup" @created="created"></scene>
 </template>
 
 <script lang="ts" setup>

@@ -5,8 +5,8 @@ import LabelRenderer from './LabelRenderer'
 interface Components {
   camera: THREE.Camera
   light: THREE.Light
-  axesHelper: THREE.AxesHelper | undefined | Boolean
-  controls: OrbitControls | undefined | Boolean
+  axesHelper: THREE.AxesHelper | undefined | boolean
+  controls: OrbitControls | undefined | boolean
 }
 
 export default function (

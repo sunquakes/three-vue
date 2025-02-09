@@ -44,9 +44,7 @@ Vue.use(ThreeVue3)
 
 ```vue
 <template>
-  <div class="scene">
-    <scene></scene>
-  </div>
+  <scene class="scene"></scene>
 </template>
 
 <script lang="ts" setup></script>

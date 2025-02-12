@@ -35,6 +35,9 @@ export default defineComponent({
           renderer = Renderer()
           emit('update:renderer', renderer)
         }
+        if (props.clearColor != undefined) {
+          renderer.setClearColor(props.clearColor)
+        }
         let camera = props.camera
         if (camera == undefined) {
           camera = Camera(container)
@@ -78,6 +81,9 @@ export default defineComponent({
     },
     renderer: {
       type: Object as PropType<THREE.WebGLRenderer>
+    },
+    clearColor: {
+      type: String
     },
     camera: {
       type: Object as PropType<THREE.Camera>

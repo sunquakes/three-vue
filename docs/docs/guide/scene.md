@@ -15,7 +15,7 @@ Component
 
 ```vue
 <template>
-  <scene class="scene"></scene>
+  <tv-scene class="scene"></tv-scene>
 </template>
 
 <script lang="ts" setup></script>
@@ -37,6 +37,7 @@ Component
 | ------------------ | --------------------------- | ----------------------- | ------------------------------------------------------------------------------------------------------ |
 | v-model            | THREE.Scene                 | THREE.Scene             | `optional` The value will be the `THREE.Scene` instance from `undefined` after the components mounted. |
 | v-model:renderer   | THREE.WebGLRenderer         | THREE.WebGLRenderer     | `optional`                                                                                             |
+| clearColor         | String                      |                         | `optional` The clear color of the scene.                                                               |
 | v-model:camera     | THREE.Camera                | THREE.PerspectiveCamera | `optional` Defaults to a PerspectiveCamera.                                                            |
 | v-model:light      | THREE.Light                 | THREE.HemisphereLight   | `optional` Defaults to a HemisphereLight.                                                              |
 | v-model:axesHelper | THREE.AxesHelper \| boolean | THREE.AxesHelper        | `optional` Defaults to a AxesHelper, `false` to hide it.                                               |

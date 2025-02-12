@@ -5,8 +5,8 @@ import GLTFLoader from './components/GLTFLoader'
 // components
 export default {
   install: (app: App) => {
-    app.component('scene', Scene)
-    app.component('gltf-loader', GLTFLoader)
+    app.component('tv-scene', Scene)
+    app.component('tv-gltf-loader', GLTFLoader)
   }
 }
 

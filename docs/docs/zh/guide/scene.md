@@ -15,7 +15,7 @@ title: 场景
 
 ```vue
 <template>
-  <scene class="scene"></scene>
+  <tv-scene class="scene"></tv-scene>
 </template>
 
 <script lang="ts" setup></script>

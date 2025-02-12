@@ -22,13 +22,13 @@ Visit [three-vue3.sunquakes.com](https://three-vue3.sunquakes.com).
 ### Install `Three.js`
 
 ```bash
-pnpm install three
+pnpm i three
 ```
 
 ### Install `three-vue3`
 
 ```bash
-pnpm install three-vue3
+pnpm i three-vue3
 ```
 
 ## Getting Started

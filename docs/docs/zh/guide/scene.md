@@ -33,7 +33,7 @@ title: 场景
 
 ## 背景颜色
 
-<SceneColorBg />
+<SceneClearColor />
 
 ::: details 点击我查看代码
 
@@ -57,7 +57,7 @@ title: 场景
 
 ## 背景图片 
 
-<SceneImgBg />
+<SceneBgImage />
 
 ::: details 点击我查看代码
 

@@ -33,7 +33,7 @@ Component
 
 ## Color As Background
 
-<SceneColorBg />
+<SceneClearColor />
 
 ::: details Click me to view the codes
 
@@ -57,7 +57,7 @@ Component
 
 ## Image As Background
 
-<SceneImgBg />
+<SceneBgImage />
 
 ::: details Click me to view the codes
 

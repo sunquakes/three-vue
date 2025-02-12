@@ -22,13 +22,13 @@
 ### 安装 `Three.js`
 
 ```bash
-pnpm install three
+pnpm i three
 ```
 
 ### 安装 `three-vue3`
 
 ```bash
-pnpm install three-vue3
+pnpm i three-vue3
 ```
 
 ## 快速开始

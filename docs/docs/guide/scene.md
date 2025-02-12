@@ -63,18 +63,10 @@ Component
 
 ```vue
 <template>
-  <tv-scene class="scene" @created="created"></tv-scene>
+  <tv-scene class="scene" bg-image="/images/examples/bg.jpg"></tv-scene>
 </template>
 
-<script lang="ts" setup>
-import { TextureLoader } from 'three'
-
-const created = (scene) => {
-  const textureLoader = new TextureLoader()
-  const texture = textureLoader.load('/images/examples/bg.jpg')
-  scene.background = texture
-}
-</script>
+<script lang="ts" setup></script>
 
 <style>
 .scene {

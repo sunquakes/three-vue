@@ -59,6 +59,11 @@ export default defineComponent({
           emit('update:controls', controls)
         }
         const scene = Scene(renderer, container, { camera, light, axesHelper, controls })
+        if (props.bgImage != undefined) {
+          const textureLoader = new THREE.TextureLoader()
+          const texture = textureLoader.load(props.bgImage)
+          scene.background = texture
+        }
         showSlot.value = true
         emit('update:modelValue', scene)
         emit('created', scene, { camera, light, axesHelper, controls })
@@ -83,6 +88,9 @@ export default defineComponent({
       type: Object as PropType<THREE.WebGLRenderer>
     },
     clearColor: {
+      type: String
+    },
+    bgImage: {
       type: String
     },
     camera: {

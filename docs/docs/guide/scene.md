@@ -31,6 +31,62 @@ Component
 
 :::
 
+## Color As Background
+
+<SceneColorBg />
+
+::: details Click me to view the codes
+
+```vue
+<template>
+  <tv-scene class="scene" clear-color="#bcedce"></tv-scene>
+</template>
+
+<script lang="ts" setup></script>
+
+<style>
+.scene {
+  margin-top: 10px;
+  width: 100%;
+  height: 300px;
+}
+</style>
+```
+
+:::
+
+## Image As Background
+
+<SceneImgBg />
+
+::: details Click me to view the codes
+
+```vue
+<template>
+  <tv-scene class="scene" @created="created"></tv-scene>
+</template>
+
+<script lang="ts" setup>
+import { TextureLoader } from 'three'
+
+const created = (scene) => {
+  const textureLoader = new TextureLoader()
+  const texture = textureLoader.load('/images/examples/bg.jpg')
+  scene.background = texture
+}
+</script>
+
+<style>
+.scene {
+  margin-top: 10px;
+  width: 100%;
+  height: 300px;
+}
+</style>
+```
+
+:::
+
 ## Props
 
 | Name               | Type                        | Default                 | Description                                                                                            |

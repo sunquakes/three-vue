@@ -1,5 +1,5 @@
 <template>
-  <tv-scene class="scene"></tv-scene>
+  <tv-scene class="scene" bg-image="/images/examples/bg.jpg"></tv-scene>
 </template>
 
 <script lang="ts" setup></script>

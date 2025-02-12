@@ -22,13 +22,13 @@
 ### 安装 `Three.js`
 
 ```bash
-pnpm install three
+pnpm i three
 ```
 
 ### 安装 `three-vue3`
 
 ```bash
-pnpm install three-vue3
+pnpm i three-vue3
 ```
 
 ## 快速开始
@@ -44,7 +44,7 @@ Vue.use(ThreeVue3)
 
 ```vue
 <template>
-  <scene class="scene"></scene>
+  <tv-scene class="scene"></tv-scene>
 </template>
 
 <script lang="ts" setup></script>

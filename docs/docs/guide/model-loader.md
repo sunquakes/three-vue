@@ -17,9 +17,9 @@ Component
 
 ```vue
 <template>
-  <scene class="scene" v-model="sceneValue" @created="created">
-    <gltf-loader v-model="gltfUrl" :scene="sceneValue"></gltf-loader>
-  </scene>
+  <tv-scene class="scene" v-model="sceneValue" @created="created">
+    <tv-gltf-loader v-model="gltfUrl" :scene="sceneValue"></tv-gltf-loader>
+  </tv-scene>
 </template>
 
 <script lang="ts" setup>

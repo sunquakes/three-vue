@@ -15,10 +15,66 @@ title: 场景
 
 ```vue
 <template>
-  <scene class="scene"></scene>
+  <tv-scene class="scene"></tv-scene>
 </template>
 
 <script lang="ts" setup></script>
+
+<style>
+.scene {
+  margin-top: 10px;
+  width: 100%;
+  height: 300px;
+}
+</style>
+```
+
+:::
+
+## 背景颜色
+
+<SceneClearColor />
+
+::: details 点击我查看代码
+
+```vue
+<template>
+  <tv-scene class="scene" clear-color="#bcedce"></tv-scene>
+</template>
+
+<script lang="ts" setup></script>
+
+<style>
+.scene {
+  margin-top: 10px;
+  width: 100%;
+  height: 300px;
+}
+</style>
+```
+
+:::
+
+## 背景图片 
+
+<SceneBgImage />
+
+::: details 点击我查看代码
+
+```vue
+<template>
+  <tv-scene class="scene" @created="created"></tv-scene>
+</template>
+
+<script lang="ts" setup>
+import { TextureLoader } from 'three'
+
+const created = (scene) => {
+  const textureLoader = new TextureLoader()
+  const texture = textureLoader.load('/images/examples/bg.jpg')
+  scene.background = texture
+}
+</script>
 
 <style>
 .scene {

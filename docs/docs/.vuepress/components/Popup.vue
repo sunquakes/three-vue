@@ -1,5 +1,5 @@
 <template>
-  <scene class="popup" @created="created"></scene>
+  <tv-scene class="popup" @created="created"></tv-scene>
 </template>
 
 <script lang="ts" setup>

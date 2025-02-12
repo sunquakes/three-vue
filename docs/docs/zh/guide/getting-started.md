@@ -14,7 +14,7 @@ title: 快速开始
 @tab pnpm
 
 ```bash:no-line-numbers
-pnpm install three
+pnpm i three
 ```
 
 @tab yarn
@@ -40,7 +40,7 @@ npm install three
 @tab pnpm
 
 ```bash:no-line-numbers
-pnpm install three-vue3
+pnpm i three-vue3
 ```
 
 @tab yarn

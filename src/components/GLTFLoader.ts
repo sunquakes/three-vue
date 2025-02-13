@@ -3,11 +3,12 @@ import * as THREE from 'three'
 import { GLTFLoader } from '../utils/ModelLoader'
 
 export default defineComponent({
-  setup(props) {
+  setup(props, { emit }) {
     return {
       async init() {
         const model = await GLTFLoader(props.modelValue, props.cache)
         props.scene.add(model)
+        emit('loaded', model)
       }
     }
   },

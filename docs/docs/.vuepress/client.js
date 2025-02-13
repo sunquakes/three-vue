@@ -4,8 +4,10 @@ import Scene from './components/Scene.vue'
 import SceneBgImage from './components/SceneBgImage.vue'
 import SceneClearColor from './components/SceneClearColor.vue'
 import SkyBox from './components/SkyBox.vue'
-import GLTFLoader from './components/GLTFLoader.vue'
+import GLTFLoaderComponent from './components/GLTFLoaderComponent.vue'
+import GLTFLoaderFunction from './components/GLTFLoaderFunction.vue'
 import Popup from './components/Popup.vue'
+import MovableElement from './components/MovableElement.vue'
 
 export default defineClientConfig({
   enhance({ app }) {
@@ -14,7 +16,9 @@ export default defineClientConfig({
     app.component('SceneBgImage', SceneBgImage)
     app.component('SceneClearColor', SceneClearColor)
     app.component('SkyBox', SkyBox)
-    app.component('GLTFLoader', GLTFLoader)
+    app.component('GLTFLoaderComponent', GLTFLoaderComponent)
+    app.component('GLTFLoaderFunction', GLTFLoaderFunction)
     app.component('Popup', Popup)
+    app.component('MovableElement', MovableElement)
   }
 })

@@ -3,9 +3,7 @@ import { generateUUID } from './UUID'
 
 import { CSS2DObject } from 'three/examples/jsm/renderers/CSS2DRenderer.js'
 
-type Position = [number, number, number]
-
-export class Popup {
+export default class Popup {
 
   /**
    * The Three.js CSS2DObject of the popup.

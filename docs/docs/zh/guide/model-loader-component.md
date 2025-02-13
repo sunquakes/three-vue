@@ -1,6 +1,6 @@
 ---
 lang: zh-CN
-title: 模型加载器
+title: 组件加载器
 ---
 
 ::: tip 类型
@@ -11,7 +11,7 @@ title: 模型加载器
 
 ### 默认用法
 
-<GLTFLoader />
+<GLTFLoaderComponent />
 
 ::: details 点击我查看代码
 

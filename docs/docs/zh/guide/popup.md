@@ -124,15 +124,15 @@ export default {
 
 :::
 
-## Props
+## 属性
 
 | 名称  | 类型              | 描述                                |
 | ----- | ----------------- | ----------------------------------- |
 | scene | THREE.CubeTexture | 用于 THREE.Scene 背景的立方体纹理。 |
 
-## Methods
+## 方法
 
-| Name        | Parameters                                                                        | Description                                                 |
+| 名称        | 参数                                                                              | 描述                                                        |
 | ----------- | --------------------------------------------------------------------------------- | ----------------------------------------------------------- |
 | constructor | (position: [number, number, number], component: Component, props: object) => void | `props` 是组件的属性。                                      |
 | moveTo      | (position: [number, number, number], duration: number) => void                    | `duration` 是从一个位置移动到另一个位置的时间，单位是毫秒。 |

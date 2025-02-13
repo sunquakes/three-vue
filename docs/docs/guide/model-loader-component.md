@@ -1,6 +1,6 @@
 ---
 lang: en-US
-title: Model Loader
+title: Component Loader
 ---
 
 ::: tip type
@@ -11,7 +11,7 @@ Component
 
 ### Default Usage
 
-<GLTFLoader />
+<GLTFLoaderComponent />
 
 ::: details Click me to view the codes
 

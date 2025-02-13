@@ -1,8 +1,11 @@
 import { App } from 'vue'
 import Scene from './components/Scene'
 import GLTFLoader from './components/GLTFLoader'
+import SkyBox from './utils/SkyBox'
+import Popup from './utils/Popup'
+import ME from './utils/ME'
 
-// components
+// component
 export default {
   install: (app: App) => {
     app.component('tv-scene', Scene)
@@ -10,5 +13,8 @@ export default {
   }
 }
 
-export { SkyBox } from './utils/SkyBox'
-export { Popup } from './utils/Popup'
+// class
+export { SkyBox, Popup, ME }
+
+// function
+export * from './utils/ModelLoader'

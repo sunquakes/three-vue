@@ -112,5 +112,5 @@
       "@/*": ["src/*"]
     }
   },
-  "include": ["src/**/*"]
+  "include": ["src/**/*", "src/types/global.d.ts"]
 }

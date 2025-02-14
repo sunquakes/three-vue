@@ -7,18 +7,21 @@ import { MTLLoader as THREEMTLLoader } from 'three/examples/jsm/loaders/MTLLoade
 const OBJECT_STORE = 'THREE_VUE_OBJECT_STORE'
 const DB_NAME = 'GLBDB'
 
-export default function fileLoader(url: string, cache: boolean = true): Promise<ArrayBuffer> {
+export default function fileLoader(
+  url: string,
+  cache: boolean = true,
+  onProgress?: (event: LoadEvent) => void
+): Promise<ArrayBuffer> {
   return new Promise((resolve, reject) => {
     if (!cache) {
-      fetch(url)
-        .then((response) => response.arrayBuffer())
-        .then((data) => {
-          resolve(data)
-        })
+      fetchWithProgress(url, onProgress).then((data) => {
+        resolve(data)
+      })
       return
     }
     const key = btoa(url)
     const checkCacheAndLoadModel = () => {
+      onProgress?.({ type: 'cache', progress: 0 })
       const request = indexedDB.open(DB_NAME, 2)
 
       request.onupgradeneeded = (event: any) => {
@@ -33,6 +36,7 @@ export default function fileLoader(url: string, cache: boolean = true): Promise<
         const getRequest = objectStore.get(key)
 
         getRequest.onsuccess = (event: any) => {
+          onProgress?.({ type: 'cache', progress: 33.33 })
           const data = event.target.result
           if (!data) {
             cacheModelToIndexedDB()
@@ -52,8 +56,7 @@ export default function fileLoader(url: string, cache: boolean = true): Promise<
     }
 
     const cacheModelToIndexedDB = async () => {
-      fetch(url)
-        .then((response) => response.arrayBuffer())
+      fetchWithProgress(url, onProgress)
         .then((data) => {
           const request = indexedDB.open(DB_NAME, 2)
 
@@ -68,6 +71,7 @@ export default function fileLoader(url: string, cache: boolean = true): Promise<
             const objectStore = transaction.objectStore(OBJECT_STORE)
             const putRequest = objectStore.put(data, key)
             putRequest.onsuccess = () => {
+              onProgress?.({ type: 'cache', progress: 66.66 })
               loadModelFromIndexedDB()
             }
           }
@@ -97,6 +101,7 @@ export default function fileLoader(url: string, cache: boolean = true): Promise<
 
         getRequest.onsuccess = (event: any) => {
           const data = event.target.result
+          onProgress?.({ type: 'cache', progress: 100 })
           resolve(data)
         }
 
@@ -114,22 +119,77 @@ export default function fileLoader(url: string, cache: boolean = true): Promise<
   })
 }
 
-export async function GLTFLoader(url: string, cache?: boolean): Promise<THREE.Group> {
-  const data = await fileLoader(url, cache)
+async function fetchWithProgress(
+  url: string,
+  onProgress?: (event: LoadEvent) => void
+): Promise<ArrayBuffer> {
+  const response = await fetch(url)
+
+  if (!response.ok) {
+    throw new Error(`HTTP error! status: ${response.status}`)
+  }
+
+  const contentLength = response.headers.get('Content-Length')
+  const totalBytes = contentLength ? parseInt(contentLength, 10) : null
+  let loadedBytes = 0
+
+  const reader = response.body?.getReader()
+  if (!reader) {
+    throw new Error('Failed to get reader from response body')
+  }
+
+  const chunks: Uint8Array[] = []
+  while (true) {
+    const { done, value } = await reader.read()
+    if (done) break
+
+    chunks.push(value)
+    loadedBytes += value.length
+
+    if (onProgress && totalBytes !== null) {
+      const progress = (loadedBytes / totalBytes) * 100
+      onProgress({ type: 'fetch', progress })
+    }
+  }
+
+  const arrayBuffer = new Uint8Array(loadedBytes)
+  let offset = 0
+  for (const chunk of chunks) {
+    arrayBuffer.set(chunk, offset)
+    offset += chunk.length
+  }
+
+  return arrayBuffer.buffer
+}
+
+export async function GLTFLoader(
+  url: string,
+  cache?: boolean,
+  onProgress?: (event: LoadEvent) => void
+): Promise<THREE.Group> {
+  const data = await fileLoader(url, cache, onProgress)
   const loader = new THREEGLTFLoader()
   return new Promise((resolve) => {
+    onProgress?.({ type: 'parse', progress: 0 })
     loader.parse(data, '', (gltf) => {
       const model = gltf.scene
+      onProgress?.({ type: 'parse', progress: 100 })
       resolve(model)
     })
   })
 }
 
-export async function FBXLoader(url: string, cache?: boolean): Promise<THREE.Group> {
+export async function FBXLoader(
+  url: string,
+  cache?: boolean,
+  onProgress?: (event: LoadEvent) => void
+): Promise<THREE.Group> {
   const data = await fileLoader(url, cache)
   const loader = new THREEFBXLoader()
   return new Promise((resolve) => {
+    onProgress?.({ type: 'parse', progress: 0 })
     const model = loader.parse(data, '')
+    onProgress?.({ type: 'parse', progress: 100 })
     resolve(model)
   })
 }
@@ -137,9 +197,10 @@ export async function FBXLoader(url: string, cache?: boolean): Promise<THREE.Gro
 export async function OBJLoader(
   url: string,
   mtlUrl: string,
-  cache?: boolean
+  cache?: boolean,
+  onProgress?: (event: LoadEvent) => void
 ): Promise<THREE.Group> {
-  const data = await fileLoader(url, cache)
+  const data = await fileLoader(url, cache, onProgress)
   const mtlData = await fileLoader(mtlUrl, cache)
   const decoder = new TextDecoder('utf-8')
   const text = decoder.decode(data)
@@ -149,7 +210,9 @@ export async function OBJLoader(
   const mtl = mtlLoader.parse(mtlText, '')
   loader.setMaterials(mtl)
   return new Promise((resolve) => {
+    onProgress?.({ type: 'parse', progress: 0 })
     const model = loader.parse(text)
+    onProgress?.({ type: 'parse', progress: 100 })
     resolve(model)
   })
 }

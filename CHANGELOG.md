@@ -4,6 +4,7 @@
 
 - Add FBX model loader.
 - Add OBJ model loader.
+- Add onProgress callback for model loader.
 
 ---
 

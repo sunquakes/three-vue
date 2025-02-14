@@ -6,7 +6,9 @@ export default defineComponent({
   setup(props, { emit }) {
     return {
       async init() {
-        const model = await OBJLoader(props.modelValue, props.mtl, props.cache)
+        const model = await OBJLoader(props.modelValue, props.mtl, props.cache, (event) =>
+          emit('onProgress', event)
+        )
         props.scene.add(model)
         emit('loaded', model)
       }

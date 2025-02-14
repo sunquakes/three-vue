@@ -117,8 +117,9 @@ const created = async (scene, { camera }) => {
 
 ## Parametersa
 
-| Name   | Type    | Default | Description                                                               |
-| ------ | ------- | ------- | ------------------------------------------------------------------------- |
-| url    | string  | string  | `required` The model url.                                                 |
-| mtlUrl | string  | string  | ?`required` The model material url. Only `OBJLoader` need this parameter. |
-| cache  | boolean | true    | `optional` The model will be cached into the indexDB. Default is true.    |
+| Name       | Type     | Default | Description                                                                                                 |
+| ---------- | -------- | ------- | ----------------------------------------------------------------------------------------------------------- |
+| url        | string   |         | `required` The model url.                                                                                   |
+| mtlUrl     | string   |         | ?`required` The model material url. Only `OBJLoader` need this parameter.                                   |
+| cache      | boolean  | true    | `optional` The model will be cached into the indexDB. Default is true.                                      |
+| onProgress | function |         | `optional` The callback function when loading the model. (event: {type: string, progress: number}) => void. |

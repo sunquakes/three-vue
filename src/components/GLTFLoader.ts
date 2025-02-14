@@ -6,7 +6,9 @@ export default defineComponent({
   setup(props, { emit }) {
     return {
       async init() {
-        const model = await GLTFLoader(props.modelValue, props.cache)
+        const model = await GLTFLoader(props.modelValue, props.cache, (event) =>
+          emit('onProgress', event)
+        )
         props.scene.add(model)
         emit('loaded', model)
       }

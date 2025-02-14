@@ -130,6 +130,7 @@ const created = (scene, { camera }) => {
 
 ## Methods
 
-| Name   | Parameters                  | Description                                                         |
-| ------ | --------------------------- | ------------------------------------------------------------------- |
-| loaded | (model: THREE.Mesh) => void | The callback function that will be called when the model is loaded. |
+| Name       | Parameters                                        | Description                                                         |
+| ---------- | ------------------------------------------------- | ------------------------------------------------------------------- |
+| onProgress | (event: {type: string, progress: number}) => void | The callback function when loading the model.                       |
+| loaded     | (model: THREE.Mesh) => void                       | The callback function that will be called when the model is loaded. |

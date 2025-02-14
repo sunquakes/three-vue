@@ -1,6 +1,6 @@
 import * as THREE from 'three'
 
-export class SkyBox {
+export default class SkyBox {
   /**
    * The cube texture.
    */

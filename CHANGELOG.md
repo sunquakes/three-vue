@@ -1,3 +1,13 @@
+## [0.0.4] - 2025-02-14
+
+### Add
+
+- Add FBX model loader.
+- Add OBJ model loader.
+- Add onProgress callback for model loader.
+
+---
+
 ## [0.0.3] - 2025-02-12
 
 ### Add

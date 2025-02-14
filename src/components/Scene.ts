@@ -1,4 +1,4 @@
-import { defineComponent, h, PropType, ref } from 'vue'
+import { defineComponent, h, PropType, ref, nextTick } from 'vue'
 import { generateUUID } from '../utils/UUID'
 import Scene from '../utils/Scene'
 import Camera from '../utils/Camera'
@@ -19,12 +19,15 @@ export default defineComponent({
     'created'
   ],
   setup(props, { emit }) {
-    const UUID = ref(generateUUID())
+    let UUID = ref()
     const showSlot = ref(false)
     return {
       UUID,
       showSlot,
-      init() {
+      async init() {
+        UUID.value = generateUUID()
+        await nextTick()
+
         const container = document.getElementById(UUID.value)
         if (!container) {
           console.error(`Container with id "${UUID.value}" not found`)

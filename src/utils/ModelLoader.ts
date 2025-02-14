@@ -1,10 +1,13 @@
 import * as THREE from 'three'
 import { GLTFLoader as THREEGLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js'
+import { FBXLoader as THREEFBXLoader } from 'three/examples/jsm/loaders/FBXLoader.js'
+import { OBJLoader as THREEOBJLoader } from 'three/examples/jsm/loaders/OBJLoader.js'
+import { MTLLoader as THREEMTLLoader } from 'three/examples/jsm/loaders/MTLLoader.js'
 
 const OBJECT_STORE = 'THREE_VUE_OBJECT_STORE'
 const DB_NAME = 'GLBDB'
 
-export default function modelLoader(url: string, cache: boolean): Promise<ArrayBuffer> {
+export default function fileLoader(url: string, cache: boolean = true): Promise<ArrayBuffer> {
   return new Promise((resolve, reject) => {
     if (!cache) {
       fetch(url)
@@ -33,8 +36,9 @@ export default function modelLoader(url: string, cache: boolean): Promise<ArrayB
           const data = event.target.result
           if (!data) {
             cacheModelToIndexedDB()
+          } else {
+            loadModelFromIndexedDB()
           }
-          loadModelFromIndexedDB()
         }
 
         getRequest.onerror = () => {
@@ -47,7 +51,7 @@ export default function modelLoader(url: string, cache: boolean): Promise<ArrayB
       }
     }
 
-    const cacheModelToIndexedDB = () => {
+    const cacheModelToIndexedDB = async () => {
       fetch(url)
         .then((response) => response.arrayBuffer())
         .then((data) => {
@@ -62,8 +66,10 @@ export default function modelLoader(url: string, cache: boolean): Promise<ArrayB
             const db = event.target.result
             const transaction = db.transaction([OBJECT_STORE], 'readwrite')
             const objectStore = transaction.objectStore(OBJECT_STORE)
-            objectStore.put(data, key)
-            loadModelFromIndexedDB()
+            const putRequest = objectStore.put(data, key)
+            putRequest.onsuccess = () => {
+              loadModelFromIndexedDB()
+            }
           }
 
           request.onerror = () => {
@@ -108,13 +114,42 @@ export default function modelLoader(url: string, cache: boolean): Promise<ArrayB
   })
 }
 
-export async function GLTFLoader(url: string, cache: boolean = true): Promise<THREE.Group> {
-  const data = await modelLoader(url, cache)
+export async function GLTFLoader(url: string, cache?: boolean): Promise<THREE.Group> {
+  const data = await fileLoader(url, cache)
   const loader = new THREEGLTFLoader()
   return new Promise((resolve) => {
     loader.parse(data, '', (gltf) => {
       const model = gltf.scene
       resolve(model)
     })
+  })
+}
+
+export async function FBXLoader(url: string, cache?: boolean): Promise<THREE.Group> {
+  const data = await fileLoader(url, cache)
+  const loader = new THREEFBXLoader()
+  return new Promise((resolve) => {
+    const model = loader.parse(data, '')
+    resolve(model)
+  })
+}
+
+export async function OBJLoader(
+  url: string,
+  mtlUrl: string,
+  cache?: boolean
+): Promise<THREE.Group> {
+  const data = await fileLoader(url, cache)
+  const mtlData = await fileLoader(mtlUrl, cache)
+  const decoder = new TextDecoder('utf-8')
+  const text = decoder.decode(data)
+  const mtlText = decoder.decode(mtlData)
+  const loader = new THREEOBJLoader()
+  const mtlLoader = new THREEMTLLoader()
+  const mtl = mtlLoader.parse(mtlText, '')
+  loader.setMaterials(mtl)
+  return new Promise((resolve) => {
+    const model = loader.parse(text)
+    resolve(model)
   })
 }

@@ -9,7 +9,7 @@ const created = async (scene, { camera }) => {
   camera.position.set(0, 1.5, 3)
 
   // Load model to scene.
-  const model = await GLTFLoader('/models/girl.glb', true)
+  const model = await GLTFLoader('/models/girl.glb')
   scene.add(model)
 }
 </script>

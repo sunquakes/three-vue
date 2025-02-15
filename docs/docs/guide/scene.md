@@ -39,7 +39,7 @@ Component
 
 ```vue
 <template>
-  <tv-scene class="scene" clear-color="#bcedce"></tv-scene>
+  <tv-scene class="scene" clear-color="#98F5F9"></tv-scene>
 </template>
 
 <script lang="ts" setup></script>

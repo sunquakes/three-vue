@@ -12,6 +12,8 @@ import OBJLoaderComponent from './components/OBJLoaderComponent.vue'
 import OBJLoaderFunction from './components/OBJLoaderFunction.vue'
 import Popup from './components/Popup.vue'
 import MovableElement from './components/MovableElement.vue'
+import WaveCircleMesh from './components/meshes/WaveCircleMesh.vue'
+import WaveCircleMeshOptions from './components/meshes/WaveCircleMeshOptions.vue'
 
 export default defineClientConfig({
   enhance({ app }) {
@@ -28,5 +30,7 @@ export default defineClientConfig({
     app.component('OBJLoaderFunction', OBJLoaderFunction)
     app.component('Popup', Popup)
     app.component('MovableElement', MovableElement)
+    app.component('WaveCircleMesh', WaveCircleMesh)
+    app.component('WaveCircleMeshOptions', WaveCircleMeshOptions)
   }
 })

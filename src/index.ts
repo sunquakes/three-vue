@@ -6,6 +6,7 @@ import OBJLoader from './components/OBJLoader'
 import SkyBox from './utils/SkyBox'
 import Popup from './utils/Popup'
 import ME from './utils/ME'
+import WaveCircleMesh from './meshes/WaveCircleMesh'
 
 // component
 export default {
@@ -18,7 +19,10 @@ export default {
 }
 
 // class
-export { SkyBox, Popup, ME }
+export { SkyBox, Popup, ME, WaveCircleMesh }
 
 // function
 export * from './utils/ModelLoader'
+
+// enum
+export { AxisType } from './enums/AxisType'

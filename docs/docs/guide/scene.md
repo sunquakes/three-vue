@@ -93,6 +93,7 @@ Component
 
 ## Methods
 
-| Name    | Parameters                                              | Description                                                    |
-| ------- | ------------------------------------------------------- | -------------------------------------------------------------- |
-| created | (scene, {camera, light, axesHelper, controls }) => void | Called when the component is mounted and the scene is created. |
+| Name          | Parameters                                              | Description                                                    |
+| ------------- | ------------------------------------------------------- | -------------------------------------------------------------- |
+| created       | (scene, {camera, light, axesHelper, controls }) => void | Called when the component is mounted and the scene is created. |
+| callbackFrame | () => void                                              | The callback function of the render loop.                      |

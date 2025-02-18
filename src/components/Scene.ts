@@ -16,7 +16,8 @@ export default defineComponent({
     'update:light',
     'update:axesHelper',
     'update:controls',
-    'created'
+    'created',
+    'callbackFrame'
   ],
   setup(props, { emit }) {
     let UUID = ref()
@@ -61,7 +62,9 @@ export default defineComponent({
           controls = new OrbitControls(camera, container)
           emit('update:controls', controls)
         }
-        const scene = Scene(renderer, container, { camera, light, axesHelper, controls })
+        const scene = Scene(renderer, container, { camera, light, axesHelper, controls }, () =>
+          emit('callbackFrame')
+        )
         if (props.bgImage != undefined) {
           const textureLoader = new THREE.TextureLoader()
           const texture = textureLoader.load(props.bgImage)

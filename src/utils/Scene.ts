@@ -12,7 +12,8 @@ interface Components {
 export default function (
   renderer: THREE.WebGLRenderer,
   container: HTMLElement,
-  components: Components
+  components: Components,
+  callbackFrame?: Function
 ): THREE.Scene {
   const scene = new THREE.Scene()
   scene.add(components.light)
@@ -33,6 +34,7 @@ export default function (
     }
     renderer.render(scene, components.camera)
     labelRenderer.render(scene, components.camera)
+    callbackFrame?.()
   }
   animate()
 

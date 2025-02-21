@@ -2,7 +2,7 @@ import { defineClientConfig } from '@vuepress/client'
 import ThreeVue3 from 'three-vue3'
 import Scene from './components/Scene.vue'
 import SceneBgImage from './components/SceneBgImage.vue'
-import SceneClearColor from './components/SceneClearColor.vue'
+import SceneBgColor from './components/SceneBgColor.vue'
 import SkyBox from './components/SkyBox.vue'
 import GLTFLoaderComponent from './components/GLTFLoaderComponent.vue'
 import GLTFLoaderFunction from './components/GLTFLoaderFunction.vue'
@@ -14,13 +14,14 @@ import Popup from './components/Popup.vue'
 import MovableElement from './components/MovableElement.vue'
 import WaveCircleMesh from './components/meshes/WaveCircleMesh.vue'
 import WaveCircleMeshOptions from './components/meshes/WaveCircleMeshOptions.vue'
+import Bloom from './components/effects/Bloom.vue'
 
 export default defineClientConfig({
   enhance({ app }) {
     app.use(ThreeVue3)
     app.component('Scene', Scene)
     app.component('SceneBgImage', SceneBgImage)
-    app.component('SceneClearColor', SceneClearColor)
+    app.component('SceneBgColor', SceneBgColor)
     app.component('SkyBox', SkyBox)
     app.component('GLTFLoaderComponent', GLTFLoaderComponent)
     app.component('GLTFLoaderFunction', GLTFLoaderFunction)
@@ -32,5 +33,6 @@ export default defineClientConfig({
     app.component('MovableElement', MovableElement)
     app.component('WaveCircleMesh', WaveCircleMesh)
     app.component('WaveCircleMeshOptions', WaveCircleMeshOptions)
+    app.component('Bloom', Bloom)
   }
 })

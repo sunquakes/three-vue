@@ -15,6 +15,12 @@ export default function (options) {
       collapsible: true,
       prefix: 'meshes/',
       children: ['wave-circle-mesh']
+    },
+    {
+      text: options.effectText,
+      collapsible: true,
+      prefix: 'effects/',
+      children: ['bloom']
     }
   ]
 }

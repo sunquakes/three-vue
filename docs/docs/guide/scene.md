@@ -33,13 +33,13 @@ Component
 
 ## Color As Background
 
-<SceneClearColor />
+<SceneBgColor />
 
 ::: details Click me to view the codes
 
 ```vue
 <template>
-  <tv-scene class="scene" clear-color="#98F5F9"></tv-scene>
+  <tv-scene class="scene" bg-color="#98F5F9"></tv-scene>
 </template>
 
 <script lang="ts" setup></script>
@@ -93,7 +93,7 @@ Component
 
 ## Methods
 
-| Name          | Parameters                                              | Description                                                    |
-| ------------- | ------------------------------------------------------- | -------------------------------------------------------------- |
-| created       | (scene, {camera, light, axesHelper, controls }) => void | Called when the component is mounted and the scene is created. |
-| callbackFrame | () => void                                              | The callback function of the render loop.                      |
+| Name          | Parameters                                                                                                      | Description                                                    |
+| ------------- | --------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------- |
+| created       | (scene, {camera, light, axesHelper, controls }) => void                                                         | Called when the component is mounted and the scene is created. |
+| callbackFrame | (renderer: THREE.WebGLRenderer, scene: THREE.Scene, components: {camera, light, axesHelper, controls }) => void | The callback function of the render loop.                      |

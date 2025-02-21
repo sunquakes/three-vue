@@ -28,7 +28,8 @@ export default defineUserConfig({
             {
               children: getChildren({
                 modelLoaderText: 'Model Loader',
-                meshText: 'Mesh'
+                meshText: 'Mesh',
+                effectText: 'Effect'
               })
             }
           ]
@@ -45,7 +46,8 @@ export default defineUserConfig({
             {
               children: getChildren({
                 modelLoaderText: '模型加载器',
-                meshText: '网格模型'
+                meshText: '网格模型',
+                effectText: '效果'
               })
             }
           ]

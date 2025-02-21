@@ -23,6 +23,9 @@ importers:
       sass:
         specifier: ^1.83.4
         version: 1.83.4
+      three:
+        specifier: ^0.173.0
+        version: 0.173.0
       three-vue3:
         specifier: file:../
         version: file:..(vue@3.5.13)
@@ -1416,6 +1419,9 @@ packages:
     resolution: {directory: .., type: directory}
     peerDependencies:
       vue: ^3.0.0
+
+  three@0.173.0:
+    resolution: {integrity: sha512-AUwVmViIEUgBwxJJ7stnF0NkPpZxx1aZ6WiAbQ/Qq61h6I9UR4grXtZDmO8mnlaNORhHnIBlXJ1uBxILEKuVyw==}
 
   to-regex-range@5.0.1:
     resolution: {integrity: sha512-65P7iz6X5yEr1cwcgvQxbbIw7Uk3gOy5dIdtZ4rDveLqhrdJP+Li/Hx6tyK0NEb+2GCyneCMJiGqrADCSNk8sQ==}
@@ -2935,6 +2941,8 @@ snapshots:
   three-vue3@file:..(vue@3.5.13):
     dependencies:
       vue: 3.5.13
+
+  three@0.173.0: {}
 
   to-regex-range@5.0.1:
     dependencies:

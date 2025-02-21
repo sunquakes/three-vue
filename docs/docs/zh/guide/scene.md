@@ -33,13 +33,13 @@ title: 场景
 
 ## 背景颜色
 
-<SceneClearColor />
+<SceneBgColor />
 
 ::: details 点击我查看代码
 
 ```vue
 <template>
-  <tv-scene class="scene" clear-color="#98F5F9"></tv-scene>
+  <tv-scene class="scene" bg-color="#98F5F9"></tv-scene>
 </template>
 
 <script lang="ts" setup></script>
@@ -92,7 +92,7 @@ title: 场景
 
 ## 方法
 
-| 名称          | 参数                                                    | 描述                       |
-| ------------- | ------------------------------------------------------- | -------------------------- |
-| created       | (scene, {camera, light, axesHelper, controls }) => void | 组件挂载并创建场景时调用。 |
-| callbackFrame | () => void                                              | 帧回调函数。               |
+| 名称          | 参数                                                                                                            | 描述                       |
+| ------------- | --------------------------------------------------------------------------------------------------------------- | -------------------------- |
+| created       | (scene, {camera, light, axesHelper, controls }) => void                                                         | 组件挂载并创建场景时调用。 |
+| callbackFrame | (renderer: THREE.WebGLRenderer, scene: THREE.Scene, components: {camera, light, axesHelper, controls }) => void | 帧回调函数。               |
